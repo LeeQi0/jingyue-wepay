@@ -1,6 +1,9 @@
 <?php 
 if(isset($_POST['moenry'])
 {
+	
+	
+	
 ini_set('date.timezone','Asia/Shanghai');
 //error_reporting(E_ERROR);
 require_once "../lib/WxPay.Api.php";
@@ -36,12 +39,11 @@ $input->SetNotify_url("http://jingyuetan.jingyue.gov.cn/WxpayAPI/WxpayAPI/exampl
 $input->SetTrade_type("JSAPI");
 $input->SetOpenid($openId);
 $order = WxPayApi::unifiedOrder($input);
-echo '<font color="#f00"><b>统一下单支付单信息</b></font><br/>';
+
 //printf_info($order);
 $jsApiParameters = $tools->GetJsApiParameters($order);
 
-//获取共享收货地址js函数参数
-$editAddress = $tools->GetEditAddressParameters();
+
 
 //③、在支持成功回调通知中处理成功之后的事宜，见 notify.php
 /**
@@ -51,7 +53,8 @@ $editAddress = $tools->GetEditAddressParameters();
  * 参考http://mp.weixin.qq.com/wiki/17/c0f37d5704f0b64713d5d2c37b468d75.html）
  */
  
- echo "<script type='text/javascript'>
+ echo "
+ <script type='text/javascript'>
 	//调用微信JS api 支付
 	function jsApiCall()
 	{
@@ -79,10 +82,32 @@ $editAddress = $tools->GetEditAddressParameters();
 		}
 	}
 	
-	
-	</script>"
- }
- else 
+</script>";
+if($order['return_code']==)
+{
+	echo"
+	if (window.confirm('已下单，是否确认支付？')) {
+	callpay();
+	} else { 
+	}";
+}
+else{
+	echo"
+	alert（'下单失败'）；
+	";
+}
+ 
+
+
+}
+
+   
+   
+   
+   
+   
+   
+else 
  {exit();}
 ?>
 
@@ -91,4 +116,4 @@ $editAddress = $tools->GetEditAddressParameters();
 
 	
 
-		<button style="width:210px; height:50px; border-radius: 15px;background-color:#FE6714; border:0px #FE6714 solid; cursor: pointer;  color:white;  font-size:16px;" type="button" onclick="callpay()" >立即支付</button>
+		
