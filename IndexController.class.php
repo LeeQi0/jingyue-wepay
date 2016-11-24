@@ -41,7 +41,7 @@ class IndexController extends Controller {
     }
 	//purchase购买页面
 	 public function purchase(){
-	 require_once("../");
+	 require_once("../WxpayAPI/WxpayAPI/example/jsapi.php");
 	 
 	 	$this->display();
 	 }
@@ -60,7 +60,7 @@ class IndexController extends Controller {
 	 }
 	 //
 	 public function refund(){
-	 require_once("../");
+	
 		$this->display();
 	 }
 }
