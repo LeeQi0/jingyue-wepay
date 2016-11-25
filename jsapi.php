@@ -1,5 +1,5 @@
 <?php 
-if(isset($_POST['moenry'])
+if(isset($_POST['tmoeny']))
 {
 ini_set('date.timezone','Asia/Shanghai');
 //error_reporting(E_ERROR);
@@ -62,9 +62,7 @@ else{
 }
  
 }
-   
-else
-   {exit();}
+
 
 
 
