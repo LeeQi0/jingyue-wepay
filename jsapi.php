@@ -1,9 +1,6 @@
 <?php 
 if(isset($_POST['moenry'])
 {
-	
-	
-	
 ini_set('date.timezone','Asia/Shanghai');
 //error_reporting(E_ERROR);
 require_once "../lib/WxPay.Api.php";
@@ -53,53 +50,23 @@ $jsApiParameters = $tools->GetJsApiParameters($order);
  * 参考http://mp.weixin.qq.com/wiki/17/c0f37d5704f0b64713d5d2c37b468d75.html）
  */
  
- echo "
- <script type='text/javascript'>
-	//调用微信JS api 支付
-	function jsApiCall()
-	{
-		WeixinJSBridge.invoke(
-			'getBrandWCPayRequest',
-			 $jsApiParameters,
-			function(res){
-				WeixinJSBridge.log(res.err_msg);
-				alert(res.err_code+res.err_desc+res.err_msg);
-			}
-		);
-	}
+ echo " <script type='text/javascript'>	//调用微信JS api 支付	function jsApiCall()	{	WeixinJSBridge.invoke(		'getBrandWCPayRequest',	 $jsApiParameters,	function(res){WeixinJSBridge.log(res.err_msg);alert(res.err_code+res.err_desc+res.err_msg);});}function callpay(){if (typeof WeixinJSBridge == 'undefined'){if( document.addEventListener ){document.addEventListener('WeixinJSBridgeReady', jsApiCall, false);}else if (document.attachEvent){ document.attachEvent('WeixinJSBridgeReady', jsApiCall);  document.attachEvent('onWeixinJSBridgeReady', jsApiCall);}}else{jsApiCall();}}</script>";
 
-	function callpay()
-	{
-		if (typeof WeixinJSBridge == 'undefined'){
-		    if( document.addEventListener ){
-		        document.addEventListener('WeixinJSBridgeReady', jsApiCall, false);
-		    }else if (document.attachEvent){
-		        document.attachEvent('WeixinJSBridgeReady', jsApiCall); 
-		        document.attachEvent('onWeixinJSBridgeReady', jsApiCall);
-		    }
-		}else{
-		    jsApiCall();
-		}
-	}
-	
-</script>";
-if($order['return_code']==)
+//............................................
+if($order['return_code']=='success')
 {
-	echo"
-	if (window.confirm('已下单，是否确认支付？')) {
-	callpay();
-	} else { 
-	}";
+	echo "if (window.confirm('已下单，是否确认支付？')) {callpay();} else { }";
 }
 else{
-	echo"
-	alert（'下单失败'）；
-	";
+	echo "alert（'下单失败'）；";
 }
  
-
-
 }
+   
+else
+   {exit();}
+
+
 
    
    
@@ -107,9 +74,7 @@ else{
    
    
    
-else 
- {exit();}
-?>
+
 
 
    
