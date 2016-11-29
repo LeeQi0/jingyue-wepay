@@ -30,6 +30,9 @@
                                --jsapi
                                --refund
                                --notiy
+                          |--database
+                              |--config
+                               --
          
 
 
@@ -81,4 +84,9 @@
       
       2.  微信支付 需要TicketId,wheretopay,wheretobuy,transaction_id
       
+      3.  请求票  修改 ifgetticket
+      
+      4.  退款  修改ifrefundmoney
+      
+      5.  退票  修改ifrefundticket
       
