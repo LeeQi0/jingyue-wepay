@@ -18,9 +18,8 @@
                       |--thinksun
                       |    |--font
                       |    |    |--show
-                      |          --form
-                                 --pay
-
+                      |          --purchase
+                                 --order
                       |    |--admin
                       |
                       |
@@ -32,7 +31,7 @@
                                --notiy
                           |--database
                               |--config
-                               --
+                               --getdata
          
 
 
@@ -89,4 +88,15 @@
       4.  退款  修改ifrefundmoney
       
       5.  退票  修改ifrefundticket
+
+
+###前台和后台功能
+
+####前台
+
+###后台{核销(高级管理员)  异常处理（低级管理员）}
+
+1.   核销的功能。
+    
+    1.  显示数据库里面的账单。
       
